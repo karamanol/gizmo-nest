@@ -2,26 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+.bg-main {
+  @apply bg-neutral-800;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.btn-primary {
+  @apply border border-neutral-700 rounded-md px-3 py-1 bg-stone-900 text-neutral-300 hover:bg-inherit hover:shadow-md transition-all;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.center {
+  @apply max-w-5xl mx-auto px-6;
+}
+
+.cart-input {
+  @apply border rounded-md p-2 items-start;
 }

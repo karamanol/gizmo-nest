@@ -10,6 +10,7 @@ type CartContextType = {
   setProductsInCart: Dispatch<SetStateAction<string[]>>;
   addToCartById: (productId: string) => void;
   removeFromCartById: (productId: string) => void;
+  clearCart: () => void;
 } | null;
 
 const CartContext = createContext<CartContextType>(null);
@@ -49,6 +50,10 @@ function CartContextProvider({ children }: CartProviderProps) {
     setProductsInCart((prev) => prev.filter((id) => id !== productId));
   };
 
+  const clearCart = () => {
+    setProductsInCart([]);
+  };
+
   return (
     <CartContext.Provider
       value={{
@@ -56,6 +61,7 @@ function CartContextProvider({ children }: CartProviderProps) {
         setProductsInCart,
         addToCartById,
         removeFromCartById,
+        clearCart,
       }}>
       {children}
     </CartContext.Provider>

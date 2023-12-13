@@ -1,6 +1,7 @@
 import { getLatestUpdatedProducts } from "@/services/getLatestProducts";
 import ProductCard from "./ProductCard";
 import SpinnerCircle from "./SpinnerCircle";
+import { useEffect } from "react";
 
 async function LatestProducts() {
   const latestProducts = await getLatestUpdatedProducts(8);

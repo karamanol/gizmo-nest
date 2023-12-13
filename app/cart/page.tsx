@@ -1,12 +1,16 @@
 "use client";
+
 import CartForm from "@/components/CartForm";
 import CartItem from "@/components/CartItem";
+import PaymentCanceled from "@/components/PaymentCanceled";
+import PaymentSuccess from "@/components/PaymentSuccess";
 import SpinnerCircle from "@/components/SpinnerCircle";
 import { useCart } from "@/context/CartContext";
 import { cn } from "@/lib/cn";
 import { getErrorMessage } from "@/utils/getErrorMessage";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
-import { useEffect, useRef, useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
 export type FullInfoProductType = {
@@ -24,7 +28,7 @@ export type FullInfoProductType = {
 };
 
 function CartPage() {
-  const { productsInCart, setProductsInCart } = useCart();
+  const { productsInCart, setProductsInCart, clearCart } = useCart();
 
   const { 0: fullInfoProductsInCart, 1: setFullInfoProductsInCart } = useState<
     Array<FullInfoProductType>
@@ -33,6 +37,8 @@ function CartPage() {
 
   // smooth list animation hook
   const { 0: parent } = useAutoAnimate();
+
+  const searchParams = useSearchParams();
 
   // get full products info from db based on user cart data
   useEffect(() => {
@@ -49,7 +55,7 @@ function CartPage() {
 
           if (!("error" in data) && data?.data?.length > 0) {
             setFullInfoProductsInCart((prev) => {
-              // creating object to not loose quantity state when deleting product from cart
+              // creating this object to not loose quantity state when deleting product from cart
               const prevProductQuantities: Record<
                 FullInfoProductType["_id"],
                 FullInfoProductType["quantity"]
@@ -76,6 +82,16 @@ function CartPage() {
   const totalCartCost = fullInfoProductsInCart?.reduce((acc, prod) => {
     return acc + (prod.price - prod.discount) * prod.quantity;
   }, 0);
+
+  useEffect(() => {
+    if (searchParams.get("success") === "true") clearCart();
+    // eslint-disable-next-line
+  }, [searchParams]);
+  if (searchParams.get("success") === "true") {
+    return <PaymentSuccess />;
+  } else if (searchParams.get("success") === "false") {
+    return <PaymentCanceled />;
+  }
 
   console.log("full info products", fullInfoProductsInCart);
 
@@ -121,15 +137,17 @@ function CartPage() {
                   );
                 })}
               </ul>
-              <section className="flex justify-end gap-3 !border-solid text-gray-900 border-gray-700 mt-3 pt-3 font-bold text-xl">
-                <span className="">Total:</span>
-                <span>
-                  {totalCartCost.toLocaleString("en-US", {
-                    currency: "USD",
-                    style: "currency",
-                  })}
-                </span>
-              </section>
+              {fullInfoProductsInCart.length > 0 ? (
+                <section className="flex justify-end gap-3 !border-solid text-gray-900 border-gray-700 mt-3 pt-3 font-bold text-xl">
+                  <span className="">Total:</span>
+                  <span>
+                    {totalCartCost.toLocaleString("en-US", {
+                      currency: "USD",
+                      style: "currency",
+                    })}
+                  </span>
+                </section>
+              ) : null}
             </section>
           </div>
         )}
@@ -143,7 +161,7 @@ function CartPage() {
           <span className="text-2xl font-bold text-gray-900 text-center my-5">
             Your order information:
           </span>
-          <CartForm />
+          <CartForm fullInfoProductsInCart={fullInfoProductsInCart} />
         </article>
       )}
     </main>

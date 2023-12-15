@@ -1,5 +1,5 @@
 import { Product } from "@/models/Product";
-import { ProductType } from "./getPromotedProduct";
+import { ProductType } from "./getOneProductById";
 
 export async function getLatestUpdatedProducts(limit: number) {
   const latestProducts: ProductType[] = await Product.aggregate([

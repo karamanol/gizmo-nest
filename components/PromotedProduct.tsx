@@ -1,10 +1,10 @@
-import { getPromotedProduct } from "@/services/getPromotedProduct";
+import { getOneProductById } from "@/services/getOneProductById";
 import Image from "next/image";
 import Link from "next/link";
 import PromotedAddButton from "./PromotedAddButton";
 
 async function PromotedProduct() {
-  const product = await getPromotedProduct("6560a37c87d54d3d096eeb12");
+  const product = await getOneProductById("6560a37c87d54d3d096eeb12"); // TODO: to create another function to get promoted products based on promoted: true. this function to not touch
   const promotedId = product?._id.toString() || "";
   // console.log(product);
 

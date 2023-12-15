@@ -14,11 +14,14 @@ export type ProductType =
       productProperties?: { [key: string]: string };
       updatedAt: Date;
       createdAt?: Date;
+      specs?: string;
+      soldout: boolean;
+      promoted: boolean;
     }
   | undefined
   | null;
 
-export async function getPromotedProduct(id: string) {
+export async function getOneProductById(id: string) {
   if (!id) return;
   try {
     await mongooseConnect();

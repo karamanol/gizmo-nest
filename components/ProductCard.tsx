@@ -1,4 +1,4 @@
-import { ProductType } from "@/services/getPromotedProduct";
+import { ProductType } from "@/services/getOneProductById";
 import Image from "next/image";
 import Link from "next/link";
 import ProductCardAddButton from "./ProductCardAddButton";

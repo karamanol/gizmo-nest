@@ -152,7 +152,7 @@ function CartPage() {
           </div>
         )}
         {isFetching && fullInfoProductsInCart.length === 0 ? (
-          <SpinnerCircle />
+          <SpinnerCircle loadingMessage="Loading..." className="mt-5" />
         ) : null}
       </article>
 

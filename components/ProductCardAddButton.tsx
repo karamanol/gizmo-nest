@@ -8,18 +8,24 @@ import toast from "react-hot-toast";
 
 type ProductCardAddButtonProps = {
   productId: string;
+  disabled?: boolean;
 };
 
-function ProductCardAddButton({ productId }: ProductCardAddButtonProps) {
+function ProductCardAddButton({
+  productId,
+  disabled,
+}: ProductCardAddButtonProps) {
   const { addToCartById, removeFromCartById, productsInCart } = useCart();
   const alreadyInCart = productsInCart.includes(productId);
 
   return (
     <button
+      disabled={disabled}
       className={cn(
         alreadyInCart
           ? "bg-teal-500 hover:bg-teal-600"
           : "bg-blue-400/70 hover:bg-blue-400",
+        disabled ? "bg-gray-300 hover:bg-gray-300" : "",
         "border p-2 rounded  mt-auto  transition-all"
       )}
       onClick={() => {

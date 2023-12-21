@@ -25,8 +25,8 @@ export async function getOneProductById(id: string) {
   if (!id) return;
   try {
     await mongooseConnect();
-    const product: ProductType = await Product.findById(id);
-    return product;
+    const product = await Product.findById(id);
+    return product as ProductType;
   } catch (err) {
     console.error(getErrorMessage(err));
   }

@@ -1,6 +1,19 @@
-function SpinnerCircle() {
+import { cn } from "@/lib/cn";
+
+function SpinnerCircle({
+  loadingMessage,
+  className,
+}: {
+  loadingMessage: string;
+  className?: string;
+}) {
   return (
-    <div role="status" className="flex justify-center items-center gap-3 mt-5">
+    <div
+      role="status"
+      className={cn(
+        "flex justify-center items-center gap-3",
+        className ? className : ""
+      )}>
       <svg
         aria-hidden="true"
         className="w-8 h-8 text-gray-200 animate-spin dark:text-gray-400 fill-blue-800"
@@ -16,7 +29,7 @@ function SpinnerCircle() {
           fill="currentFill"
         />
       </svg>
-      <span>Loading...</span>
+      <span>{loadingMessage}</span>
     </div>
   );
 }

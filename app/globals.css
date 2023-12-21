@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* *{
+  border: 1px solid red
+} */
 /* logo accent #306c8a */
 .bg-main {
   @apply bg-neutral-800;
@@ -17,4 +20,41 @@
 
 .cart-input {
   @apply border rounded-md p-2 mb-4 items-start shadow-sm w-full;
+}
+
+/* @keyframes fadeIn {
+  0% {
+    filter: blur(2rem);
+  }
+  100% {
+    filter: blur(0);
+  }
+}
+
+.fadeIn-animated {
+  animation: fadeIn 0.3s linear;
+} */
+
+@keyframes from-left-to-right {
+  0% {
+    translate: -100%;
+  }
+  100% {
+    translate: 100%;
+  }
+}
+
+.skeleton-animation {
+  animation: from-left-to-right 1.7s infinite;
+}
+
+.header-link {
+  @apply text-gray-300/70 text-lg px-1 hover:text-gray-200 transition-all;
+}
+.header-link-active {
+  @apply rounded-full transition-all;
+}
+.header-link-active {
+  outline: 2px solid #ffffff60;
+  outline-offset: 3px;
 }

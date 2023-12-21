@@ -1,10 +1,10 @@
-import { getLatestUpdatedProducts } from "@/services/getLatestProducts";
+import { getLatestUpdatedProducts } from "@/services/server/getLatestProducts";
 import ProductCard from "./ProductCard";
 import SpinnerCircle from "./SpinnerCircle";
-import { useEffect } from "react";
 
+const productsNumber = 8;
 async function LatestProducts() {
-  const latestProducts = await getLatestUpdatedProducts(8);
+  const latestProducts = await getLatestUpdatedProducts(productsNumber);
   // console.log(latestProducts);
 
   return (
@@ -20,7 +20,7 @@ async function LatestProducts() {
         </div>
       ) : (
         <div className="h-96 flex items-center justify-center">
-          <SpinnerCircle />
+          <SpinnerCircle loadingMessage="Loading..." />
         </div>
       )}
     </section>

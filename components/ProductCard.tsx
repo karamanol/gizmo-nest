@@ -1,7 +1,8 @@
-import { ProductType } from "@/services/getOneProductById";
+import { ProductType } from "@/services/server/getOneProductById";
 import Image from "next/image";
 import Link from "next/link";
 import ProductCardAddButton from "./ProductCardAddButton";
+import { cn } from "@/lib/cn";
 
 type ProductCardProps = {
   product: ProductType;
@@ -9,14 +10,18 @@ type ProductCardProps = {
 
 function ProductCard({ product }: ProductCardProps) {
   const productFinalPrice = (product?.price ?? 0) - (product?.discount ?? 0);
-  const linkToProduct = `/products/${product?._id}`;
+  const linkToProduct = `/product/${product?._id}`;
 
   return (
-    <article className="border rounded-md bg-white p-4 gap-3 drop-shadow-sm flex flex-col justify-center items-center hover:scale-[102%] transition-transform">
+    <article
+      className={cn(
+        product?.soldout ? "opacity-60" : "",
+        "border rounded-md bg-white p-4 gap-3 drop-shadow-sm flex flex-col justify-center items-center hover:scale-[102%] transition-transform"
+      )}>
       <section className="relative h-40 w-full ">
         <Link href={linkToProduct}>
           <Image
-            src={product?.images?.at(-1) || "/product-default-list-350.jpg"}
+            src={product?.images?.[0] || "/product-default-list-350.jpg"}
             fill
             className="object-contain"
             alt={`${product?.name} image`}
@@ -49,7 +54,10 @@ function ProductCard({ product }: ProductCardProps) {
             })}`}
           </div>
         </div>
-        <ProductCardAddButton productId={product?._id.toString() || ""} />
+        <ProductCardAddButton
+          disabled={product?.soldout}
+          productId={product?._id.toString() || ""}
+        />
       </section>
     </article>
   );

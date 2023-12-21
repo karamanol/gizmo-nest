@@ -1,13 +1,13 @@
-import { Schema, Types, model, models } from "mongoose";
+import mongoose from "mongoose";
 
-const productSchema = new Schema(
+const productSchema = new mongoose.Schema(
   {
     name: { type: String, required: [true, "Product needs a name"] },
     description: String,
     price: { type: Number, required: [true, "Product must have a price"] },
     images: [String],
     discount: { type: Number },
-    category: { type: Types.ObjectId, ref: "Category" },
+    category: { type: mongoose.Types.ObjectId, ref: "Category" },
     productProperties: { type: Object, default: {} },
     specs: { type: String },
     soldout: { type: Boolean, default: false },
@@ -15,4 +15,5 @@ const productSchema = new Schema(
   },
   { timestamps: true }
 );
-export const Product = models.Product || model("Product", productSchema);
+export const Product =
+  mongoose.models.Product || mongoose.model("Product", productSchema);

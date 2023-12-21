@@ -1,14 +1,7 @@
-import { mongooseConnect } from "@/lib/mongoose";
-import { Product } from "@/models/Product";
+import AllProducts from "@/components/AllProducts";
 
-function Products() {
-  return <div>products</div>;
+function ProductsPage() {
+  return <AllProducts />;
 }
 
-export default Products;
-
-export async function getServersSideProps({}) {
-  await mongooseConnect();
-
-  return { props: { products: await Product.find({}, { sort: "_id" }) } };
-}
+export default ProductsPage;

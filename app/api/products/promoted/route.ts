@@ -27,8 +27,6 @@ export async function GET(request: NextRequest) {
       },
     ]);
 
-    console.log("=========", products);
-
     return Response.json({ status: 200, data: products });
   } catch (err) {
     if (err) {

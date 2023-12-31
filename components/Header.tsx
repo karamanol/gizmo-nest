@@ -9,13 +9,12 @@ import { cn } from "@/lib/cn";
 const font = Share_Tech({ weight: "400", subsets: ["latin"] });
 
 function Header() {
-  const { productsInCart } = useCart();
+  const { productsInCart, favouriteProducts } = useCart();
   const pathName = usePathname();
-  console.log(pathName);
 
   return (
     // <header className="bg-gradient-to-r from-gray-500 to-neutral-800 ">
-    <header className="bg-neutral-800">
+    <header className="bg-gray-800">
       <div className="center flex h-20 items-center justify-between">
         <Link href={"/"} className="flex items-center text-2xl gap-2 p-1">
           <Image
@@ -30,6 +29,7 @@ function Header() {
             GizmoNest
           </span>
         </Link>
+
         <nav className="flex gap-3 ">
           <Link
             href={"/"}
@@ -39,6 +39,7 @@ function Header() {
             )}>
             Homepage
           </Link>
+
           <Link
             href={"/products"}
             className={cn(
@@ -47,22 +48,25 @@ function Header() {
             )}>
             All products
           </Link>
+
           <Link
             href={"/categories"}
             className={cn(
               "header-link",
-              pathName === "/categories" ? "header-link-active" : ""
+              pathName.startsWith("/categories") ? "header-link-active" : ""
             )}>
             Categories
           </Link>
+
           <Link
-            href={"/account"}
+            href={"/favourites"}
             className={cn(
               "header-link",
-              pathName === "/account" ? "header-link-active" : ""
+              pathName === "/favourites" ? "header-link-active" : ""
             )}>
-            Account
+            Favourites ({favouriteProducts.length})
           </Link>
+
           <Link
             href={"/cart"}
             className={cn(

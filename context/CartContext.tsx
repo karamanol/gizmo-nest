@@ -11,6 +11,10 @@ type CartContextType = {
   addToCartById: (productId: string) => void;
   removeFromCartById: (productId: string) => void;
   clearCart: () => void;
+  favouriteProducts: string[];
+  addToFavouriteById: (productId: string) => void;
+  removeFromFavouriteById: (productId: string) => void;
+  isProductInFavourites: (productId: string) => boolean;
 } | null;
 
 const CartContext = createContext<CartContextType>(null);
@@ -38,7 +42,8 @@ function CartContextProvider({ children }: CartProviderProps) {
     return [value, setValue];
   }
 
-  const { 0: productsInCart, 1: setProductsInCart } = useLocalStorageState<
+  //--------------------------CART---------------------------------
+  const [productsInCart, setProductsInCart] = useLocalStorageState<
     Array<string>
   >([], "productsInCart");
 
@@ -54,6 +59,20 @@ function CartContextProvider({ children }: CartProviderProps) {
     setProductsInCart([]);
   };
 
+  //------------------FAVOURITE PRODUCTS----------------------------
+  const [favouriteProducts, setFavouriteProducts] = useLocalStorageState<
+    Array<string>
+  >([], "favouriteProducts");
+  const addToFavouriteById = (productId: string) => {
+    setFavouriteProducts((prev) => [...prev, productId]);
+  };
+  const removeFromFavouriteById = (productId: string) => {
+    setFavouriteProducts((prev) => prev.filter((id) => id !== productId));
+  };
+  const isProductInFavourites = (productId: string) => {
+    return favouriteProducts.includes(productId);
+  };
+
   return (
     <CartContext.Provider
       value={{
@@ -62,6 +81,10 @@ function CartContextProvider({ children }: CartProviderProps) {
         addToCartById,
         removeFromCartById,
         clearCart,
+        favouriteProducts,
+        addToFavouriteById,
+        removeFromFavouriteById,
+        isProductInFavourites,
       }}>
       {children}
     </CartContext.Provider>

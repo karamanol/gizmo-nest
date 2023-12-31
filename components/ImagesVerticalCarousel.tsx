@@ -6,6 +6,8 @@ import "@egjs/react-flicking/dist/flicking.css";
 import Image from "next/image";
 import { useRef, useState } from "react";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
+import Modal from "./Modal";
+import { TbZoomScan } from "react-icons/tb";
 
 type ImagesVerticalCarouselProps = {
   imagesArr: string[] | undefined;
@@ -14,11 +16,10 @@ const defaultImage = "/product-default-list-350.jpg";
 export default function ImagesVerticalCarousel({
   imagesArr,
 }: ImagesVerticalCarouselProps) {
-  const { 0: activeImage, 1: setActiveImage } = useState(
+  const [activeImage, setActiveImage] = useState(
     () => imagesArr?.[0] ?? defaultImage
   );
-
-  console.log("qaq", activeImage);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const flicking = useRef<Flicking | null>(null);
 
@@ -105,8 +106,12 @@ export default function ImagesVerticalCarousel({
             : [defaultImage]
           )?.map((img, i) => {
             return (
-              <div key={img} className=" h-20 w-20 relative rounded-lg m-1 ">
+              <button
+                type="button"
+                key={img}
+                className=" h-20 w-20 relative rounded-lg m-1 ">
                 <Image
+                  draggable={false}
                   onClick={() => handleClickImage(img)}
                   fill
                   src={img}
@@ -119,7 +124,7 @@ export default function ImagesVerticalCarousel({
                   )}
                   quality={5}
                 />
-              </div>
+              </button>
             );
           })}
         </Flicking>
@@ -140,14 +145,29 @@ export default function ImagesVerticalCarousel({
           }
         </button>
       </div>
-      <div className="relative h-96 w-96  mx-3">
+      <button
+        type="button"
+        onClick={() => setIsModalOpen((isOpen) => !isOpen)}
+        className="relative h-96 w-96 mx-3 group">
         <Image
-          className="object-contain rounded-lg border border-gray-20  p-2 "
+          className="object-contain rounded-lg border border-gray-20 p-2 "
           fill
           src={activeImage || defaultImage}
           alt="Product image"
         />
-      </div>
+        <TbZoomScan className="absolute h-10 w-10 text-gray-700 opacity-0 group-hover:opacity-80 right-3 top-3 transition-all " />
+      </button>
+      <Modal isOpen={isModalOpen} setIsOpen={setIsModalOpen}>
+        <Image
+          className="object-contain p-2"
+          // fill
+          width={600}
+          height={600}
+          src={activeImage || defaultImage}
+          alt="Product zoomed image"
+          quality={85}
+        />
+      </Modal>
     </section>
   );
 }

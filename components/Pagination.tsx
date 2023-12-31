@@ -32,7 +32,7 @@ function Pagination({
   };
 
   return (
-    <div className="flex gap-3 mt-5 justify-end mr-1 h-9">
+    <div className="flex gap-3 mt-8 justify-end mr-1 h-9">
       <Link
         href={prevPage}
         className={cn(

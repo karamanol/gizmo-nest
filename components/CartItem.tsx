@@ -39,7 +39,7 @@ function CartItem({
     [setFullInfoProductsInCart]
   );
 
-  if (product === null || product === undefined) return null;
+  if (product === null || typeof product === "undefined") return null;
 
   return (
     <li

@@ -30,10 +30,10 @@ export type FullInfoProductType = {
 function CartPage() {
   const { productsInCart, setProductsInCart, clearCart } = useCart();
 
-  const { 0: fullInfoProductsInCart, 1: setFullInfoProductsInCart } = useState<
+  const [fullInfoProductsInCart, setFullInfoProductsInCart] = useState<
     Array<FullInfoProductType>
   >([]);
-  const { 0: isFetching, 1: setIsFetching } = useState(false);
+  const [isFetching, setIsFetching] = useState(false);
 
   // smooth list animation hook
   const { 0: parent } = useAutoAnimate();
@@ -93,13 +93,13 @@ function CartPage() {
     return <PaymentCanceled />;
   }
 
-  console.log("full info products", fullInfoProductsInCart);
+  // console.log("full info products", fullInfoProductsInCart);
 
   return (
     <main
       className={cn(
         productsInCart.length ? "grid grid-cols-[1.5fr,1fr]" : "flex",
-        "center pt-6 gap-8 min-h-[20rem] "
+        "center pt-6 gap-5 min-h-[20rem] "
       )}>
       <article className="bg-white rounded-md p-6 flex flex-col min-w-full">
         {!productsInCart.length ? (

@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import ProductCardAddButton from "./ProductCardAddButton";
 import { cn } from "@/lib/cn";
+import AddToFavouriteButton from "./AddToFavouriteButton";
 
 type ProductCardProps = {
   product: ProductType;
@@ -27,13 +28,16 @@ function ProductCard({ product }: ProductCardProps) {
             alt={`${product?.name} image`}
           />
         </Link>
+        <div className="absolute scale-75 translate-x-4 -translate-y-4 right-0">
+          <AddToFavouriteButton productId={product?._id.toString() || ""} />
+        </div>
       </section>
 
       <section>
         <Link href={linkToProduct}>
-          <span className="font-semibold text-gray-800 hover:text-black transition-all">
+          <p className="font-semibold text-gray-800 hover:text-black transition-all text-center">
             {product?.name}
-          </span>
+          </p>
         </Link>
       </section>
 

@@ -2,7 +2,6 @@
 
 import { FullInfoProductType } from "@/app/cart/page";
 import { cn } from "@/lib/cn";
-import { getErrorMessage } from "@/utils/getErrorMessage";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import { useRouter } from "next/navigation";
 import { SubmitHandler, useForm } from "react-hook-form";
@@ -55,11 +54,9 @@ function CartForm({ fullInfoProductsInCart }: CartFormProps) {
         reset();
         router.push(data.urlTorRedirect); // go to payment page
       } else if (data.error) {
-        console.log(data.error); //? to be removed
         toast.error("Error creating order");
       }
     } catch (err) {
-      console.log(getErrorMessage(err)); //? to be removed
       toast.error("Failed to create order");
     }
     // console.log(data);

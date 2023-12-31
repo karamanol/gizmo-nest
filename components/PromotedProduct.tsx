@@ -31,10 +31,10 @@ function PromotedProduct() {
     })();
   }, []);
 
-  console.log(promotedProducts);
+  // console.log(promotedProducts);
 
   return (
-    <div className="bg-main pb-8">
+    <div className="bg-gradient-to-b from-gray-800 to-gray-700 pb-8">
       <div className="max-w-5xl mx-auto px-10">
         <Flicking
           plugins={plugins}
@@ -61,7 +61,7 @@ function PromotedProduct() {
                       <h1 className="text-gray-200 text-3xl mb-2">
                         {product?.name}
                       </h1>
-                      <p className="text-gray-400 mb-2">
+                      <p className="text-gray-300/80 mb-2">
                         {product?.description}
                       </p>
                       <div className="flex justify-start gap-8 mt-auto">
@@ -74,7 +74,10 @@ function PromotedProduct() {
                         <WidedAddProductButton productId={product?._id ?? ""} />
                       </div>
                     </div>
-                    <div className="relative overflow-hidden rounded-md">
+                    <Link
+                      href={`/product/${product?._id}`}
+                      draggable={false}
+                      className="relative overflow-hidden rounded-md">
                       <Image
                         draggable={false}
                         src={
@@ -85,7 +88,7 @@ function PromotedProduct() {
                         alt={product?.name || "Promoted product"}
                         className="object-contain"
                       />
-                    </div>
+                    </Link>
                   </div>
                 );
               })

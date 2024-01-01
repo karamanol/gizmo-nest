@@ -4,10 +4,8 @@ import { getErrorMessage } from "@/utils/getErrorMessage";
 import mongoose, { MongooseError } from "mongoose";
 import { NextRequest } from "next/server";
 
-// export const dynamic = "force-dynamic";
-
 export async function POST(request: Request) {
-  // fetches products by id's in request body
+  // Fetches products by id's in request body
   try {
     await mongooseConnect();
     const productsId = await request.json();
@@ -30,9 +28,10 @@ const sortDB = {
 export async function GET(request: NextRequest) {
   try {
     await mongooseConnect();
-    // when get one product by id in params
+    // When get one product by id in params
     const { searchParams } = new URL(request.url);
     const id = searchParams.get("id");
+
     if (id) {
       const product = await Product.findById(id).populate({
         path: "category",
@@ -41,7 +40,7 @@ export async function GET(request: NextRequest) {
       return Response.json({ status: 200, data: product });
     }
 
-    // when get many products
+    // When get many products
     const _page = parseInt(searchParams.get("page") || "1") || 1;
     const page = _page > 0 ? _page : 1; // must be greater than 0
 
@@ -111,9 +110,7 @@ export async function GET(request: NextRequest) {
 
     return Response.json({ status: 200, data: products });
   } catch (err) {
-    if (err) {
-      console.log(err);
-      return Response.json({ error: getErrorMessage(err), status: 500 });
-    }
+    console.log(err);
+    return Response.json({ error: getErrorMessage(err), status: 500 });
   }
 }

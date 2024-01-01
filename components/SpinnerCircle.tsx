@@ -4,7 +4,7 @@ function SpinnerCircle({
   loadingMessage,
   className,
 }: {
-  loadingMessage: string;
+  loadingMessage?: string;
   className?: string;
 }) {
   return (
@@ -29,7 +29,7 @@ function SpinnerCircle({
           fill="currentFill"
         />
       </svg>
-      <span>{loadingMessage}</span>
+      {loadingMessage && <span>{loadingMessage}</span>}
     </div>
   );
 }

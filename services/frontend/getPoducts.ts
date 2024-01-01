@@ -1,6 +1,5 @@
 import { getErrorMessage } from "@/utils/getErrorMessage";
 import { ProductType } from "../server/getOneProductById";
-import { Range } from "react-input-range";
 
 export async function getProducts({
   sort,

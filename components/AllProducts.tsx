@@ -100,10 +100,6 @@ function AllProducts({ categoryId, headerText }: AllProductsProps) {
     (confirmedPriceRangeValue.min !== initialState.min ||
       confirmedPriceRangeValue.max !== initialState.max);
 
-  // console.log(confirmedPriceRangeValue?.min === initialState.min);
-  // console.log("confirmedPriceRangeValue?.max", confirmedPriceRangeValue?.max);
-  // console.log(" initialState.max", initialState.max);
-
   return (
     <section className="center">
       <h2 className="text-3xl font-semibold text-gray-800 flex gap-4 items-center pt-5 ">

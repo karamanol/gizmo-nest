@@ -41,7 +41,9 @@ function WideAddProductButton({
           });
         }
       }}>
-      <span>{alreadyInCart ? "Added to" : "Add to"}</span>
+      <span className="whitespace-nowrap">
+        {alreadyInCart ? "Added to" : "Add to"}
+      </span>
       <RiShoppingCartLine
         className={cn(alreadyInCart ? "text-green-600" : "", "ml-1")}
       />

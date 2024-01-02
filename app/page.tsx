@@ -3,7 +3,7 @@ import PromotedProduct from "@/components/PromotedProduct";
 
 export default function Home() {
   return (
-    <div className="">
+    <div>
       <PromotedProduct />
       <LatestProducts />
     </div>

@@ -88,7 +88,7 @@ function Footer() {
 
         <div>
           <h2 className="text-lg font-semibold mb-4">Follow Us</h2>
-          <div className="flex space-x-4">
+          <div className="flex lg:space-x-4 flex-col xl:flex-row  ">
             <Link
               prefetch={false}
               href="#"

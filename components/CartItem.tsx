@@ -47,7 +47,7 @@ function CartItem({
       key={product?._id}>
       <section className="flex h-[60px] w-[80px] justify-center items-center m-1 border rounded-md overflow-hidden">
         <Image
-          src={product?.images?.at(-1) || "/product-default-list-350.jpg"}
+          src={product?.images?.at(0) || "/product-default-list-350.jpg"}
           height={40}
           width={40}
           className=""

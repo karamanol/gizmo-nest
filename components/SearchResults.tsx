@@ -7,6 +7,7 @@ type SearchResultsProps = {
   className?: string;
   searchString: string;
   setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
+  setIsOpenMobileView?: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 function SearchResults({
@@ -14,6 +15,7 @@ function SearchResults({
   className,
   searchString,
   setSearchTerm,
+  setIsOpenMobileView,
 }: SearchResultsProps) {
   if (typeof products === "undefined" || searchString.length <= 2) return null;
   if (Array.isArray(products) && products.length === 0)
@@ -27,10 +29,11 @@ function SearchResults({
     <ul className={cn("z-10 flex flex-col gap-1", className)}>
       {products?.map((product) => (
         <Link
-          className=" hover:bg-slate-200 p-1 transition-colors px-3"
+          className=" hover:bg-slate-200 p-1 transition-colors px-3 "
           href={`/product/${product?._id.toString()}`}
           key={product?._id}
           onClick={() => {
+            setIsOpenMobileView?.(false);
             setSearchTerm("");
           }}>
           {product?.name}

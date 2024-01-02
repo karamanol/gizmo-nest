@@ -49,7 +49,7 @@
 }
 
 .header-link {
-  @apply text-gray-300/70 text-lg px-1 hover:text-gray-200 transition-all;
+  @apply flex items-center justify-center text-gray-300/70 text-lg px-1 hover:text-gray-200 transition-all;
 }
 .header-link-active {
   @apply rounded-md transition-all text-gray-200;

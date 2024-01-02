@@ -155,7 +155,6 @@ function AllProducts({ categoryId, headerText }: AllProductsProps) {
         </div>
       ) : null}
 
-      {/* ================================ */}
       <div ref={parent}>
         {!isLoading &&
           Array.isArray(products) &&
@@ -167,7 +166,6 @@ function AllProducts({ categoryId, headerText }: AllProductsProps) {
           )}
       </div>
 
-      {/* ================================ */}
 
       <div className="grid grid-cols-4 gap-4 pt-4">
         {isLoading ? (

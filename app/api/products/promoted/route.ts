@@ -4,6 +4,8 @@ import { ProductType } from "@/services/server/getOneProductById";
 import { getErrorMessage } from "@/utils/getErrorMessage";
 import { NextRequest } from "next/server";
 
+export const dynamic = "force-dynamic";
+
 const defaultPromotedAmount = "3";
 
 export async function GET(request: NextRequest) {

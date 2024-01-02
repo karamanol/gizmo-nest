@@ -59,8 +59,6 @@ export async function POST(request: NextRequest) {
     if (!pricesFromDB.length) throw new Error("No prices found in database");
     const parsedPricesFromDB = pricesFromDBSchema.parse(pricesFromDB);
 
-    // console.log("prices from db", pricesFromDB);
-
     if (!process.env.STRIPE_SECRET_TEST_KEY)
       throw new Error("Stripe secret key is not set");
     const stripe = new Stripe(process.env.STRIPE_SECRET_TEST_KEY as string);
@@ -71,7 +69,6 @@ export async function POST(request: NextRequest) {
       delivered: false,
       orderedProducts: parsed.productsData,
     });
-    // console.log("neworder", newOrder);
 
     const stripeSession = await stripe.checkout.sessions.create({
       line_items: parsed.productsData.map((parsedProd) => {
@@ -98,7 +95,6 @@ export async function POST(request: NextRequest) {
       customer_email: parsed.inputsData.email,
       metadata: { orderId: `${newOrder._id}` },
     });
-    // console.log(stripeSession);
 
     return NextResponse.json({ urlTorRedirect: stripeSession.url });
   } catch (err) {

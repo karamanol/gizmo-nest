@@ -2,6 +2,7 @@ import { mongooseConnect } from "@/lib/mongoose";
 import { Review } from "@/models/Review";
 import { getErrorMessage } from "@/utils/getErrorMessage";
 import { sanitize } from "express-mongo-sanitize";
+export const dynamic = "force-dynamic";
 
 export async function POST(request: Request) {
   try {

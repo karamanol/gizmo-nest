@@ -97,7 +97,7 @@ function CartForm({ fullInfoProductsInCart }: CartFormProps) {
         })}
       />
 
-      <div className="grid grid-cols-[1.6fr,1fr]">
+      <div className="grid grid-cols-[2fr,1fr]  md:grid-cols-[1.6fr,1fr]">
         {errors.city?.message && (
           <FormInputError message={errors.city.message} />
         )}

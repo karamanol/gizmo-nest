@@ -43,7 +43,7 @@ function CartItem({
 
   return (
     <li
-      className="grid grid-cols-[1fr,1.5fr,1fr,1fr] min-h-[4rem] my-1 pt-1"
+      className="grid items-center grid-cols-[1fr,1.5fr,1fr,1fr] min-h-[4rem] my-1 pt-1"
       key={product?._id}>
       <section className="flex h-[60px] w-[80px] justify-center items-center m-1 border rounded-md overflow-hidden">
         <Image
@@ -56,9 +56,9 @@ function CartItem({
       </section>
 
       <div className="flex justify-between items-center group">
-        <h3 className="">{product?.name}</h3>
+        <h3 className="text-xs sm:text-base ml-1">{product?.name}</h3>
         <button
-          className="opacity-0 group-hover:opacity-100 hover:text-red-700 transition-all duration-200 ml-1"
+          className="md:opacity-0 group-hover:opacity-100 hover:text-red-700 transition-all duration-200 ml-1"
           onClick={() => {
             setFullInfoProductsInCart((prev) =>
               prev.map((prod) =>
@@ -109,8 +109,8 @@ function CartItem({
         </div>
       )}
 
-      <div className="flex items-center justify-end gap-2">
-        <span className="inline-block text-gray-500 relative">
+      <div className="flex flex-col sm:flex-row sm:justify-end justify-center items-end  gap-2">
+        <span className="inline-block text-gray-500 text-sm sm:text-base relative">
           {product.discount ? product.price : ""}
           <div className="h-[2px] bg-red-800/90 rounded-md absolute z-50 inset-0 -rotate-12 translate-y-[520%]"></div>
         </span>

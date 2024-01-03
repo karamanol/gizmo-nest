@@ -13,7 +13,7 @@ async function LatestProducts() {
         Latest Products:
       </h2>
       {typeof latestProducts !== "undefined" && latestProducts.length > 0 ? (
-        <div className="grid grid-cols-4 gap-4 pt-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 pt-4">
           {latestProducts.map((product) => {
             return <ProductCard product={product} key={product?._id} />;
           })}

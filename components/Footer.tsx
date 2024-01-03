@@ -5,8 +5,8 @@ import { IoLogoFacebook } from "react-icons/io";
 
 function Footer() {
   return (
-    <footer className="bg-gray-800 text-gray-300 py-12">
-      <div className="center grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+    <footer className="bg-gray-800 text-gray-300 py-12 min-w-[350px] overflow-x-auto">
+      <div className="center !px-10 !sm:px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
         <div>
           <h2 className="text-lg font-semibold mb-4">Categories</h2>
           <ul className="list-none">
@@ -88,13 +88,13 @@ function Footer() {
 
         <div>
           <h2 className="text-lg font-semibold mb-4">Follow Us</h2>
-          <div className="flex lg:space-x-4 flex-col xl:flex-row  ">
+          <div className="flex xl:space-x-4 flex-col xl:flex-row  ">
             <Link
               prefetch={false}
               href="#"
               target="_blank"
               className="hover:text-gray-400 flex gap-1 items-center">
-              <IoLogoFacebook className="h-6 w-6" /> Facebook
+              <IoLogoFacebook className="h-5 w-5 scale-110" /> Facebook
             </Link>
             <Link
               prefetch={false}

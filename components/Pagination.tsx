@@ -10,6 +10,7 @@ type PaginationProps = {
   isDisabledNextBtn: boolean;
   sortBy?: string;
   resultsPerPage?: number;
+  className?: string;
 };
 
 function Pagination({
@@ -17,6 +18,7 @@ function Pagination({
   isDisabledNextBtn,
   sortBy,
   resultsPerPage,
+  className,
 }: PaginationProps) {
   const router = useRouter();
 
@@ -32,7 +34,7 @@ function Pagination({
   };
 
   return (
-    <div className="flex gap-3 mt-8 justify-end mr-1 h-9">
+    <div className={cn("flex gap-3 mt-8 justify-end mr-1 h-9", className)}>
       <Link
         href={prevPage}
         className={cn(
@@ -43,7 +45,7 @@ function Pagination({
       </Link>
 
       <input
-        className="w-16 !mb-0 rounded-md p-2"
+        className="w-16 !mb-0 rounded-md p-2 text-center"
         placeholder={page.toString()}
         type="number"
         onKeyDown={handleKeyPress}

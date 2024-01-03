@@ -97,9 +97,11 @@ function AddReviewAsDropdown({ productName, productId }: AddReviewProps) {
               {errors.name?.message && (
                 <span className="text-red-700">{errors.name.message}</span>
               )}
-              <div className="flex items-center gap-10">
+              <div className="md:flex items-center gap-10">
                 <div className=" flex items-center w-full">
-                  <label htmlFor="name" className="whitespace-nowrap mr-2">
+                  <label
+                    htmlFor="name"
+                    className="whitespace-nowrap mr-2 text-sm lg:text-base">
                     Your name:
                   </label>
                   <input
@@ -108,16 +110,18 @@ function AddReviewAsDropdown({ productName, productId }: AddReviewProps) {
                       maxLength: { value: 50, message: "Too long name" },
                       required: "Name field is required!",
                     })}
-                    className="bg-gray-50 border border-gray-200 rounded-md w-full px-2 py-1"
+                    className="bg-gray-50 border border-gray-200 rounded-md w-full px-2 py-1 text-xs lg:text-base"
                     type="text"
                     placeholder="This name will be displayed for all users"
                   />
                 </div>
 
-                <div className="flex items-center ">
-                  <span className="whitespace-nowrap">Rate the product:</span>
+                <div className="flex items-center">
+                  <span className="whitespace-nowrap text-sm lg:text-base">
+                    Rate the product:
+                  </span>
 
-                  <div className="flex items-center gap-[2px] p-2">
+                  <div className="flex items-center lg:gap-[2px] gap-[1px] p-2">
                     {[...Array(10)].map((_item, index) => {
                       const currentStarRating = index + 1;
                       return (
@@ -132,13 +136,15 @@ function AddReviewAsDropdown({ productName, productId }: AddReviewProps) {
                               currentStarRating <= rating
                                 ? "text-yellow-600"
                                 : "text-gray-300",
-                              "hover:scale-125 transition-transform"
+                              "hover:scale-125 transition-transform sm:h-4 sm:w-4 w-3 h-3"
                             )}
                           />
                         </button>
                       );
                     })}
-                    <span className="ml-2 w-3 font-bold">{rating}</span>
+                    <span className="ml-2 w-3 font-bold text-sm sm:text-base">
+                      {rating}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -159,10 +165,10 @@ function AddReviewAsDropdown({ productName, productId }: AddReviewProps) {
                 className="min-h-[7rem] bg-gray-50 border border-gray-200 rounded-md w-full px-3 pt-10 focus:pt-1 focus:text-sm transition-all duration-300 resize-none mt-3"
               />
 
-              <div className="flex mt-3 gap-3">
+              <div className="flex mt-3 justify-between lg:gap-3">
                 <button
                   type="submit"
-                  className="bg-gray-800 text-white rounded-md px-10 py-1 hover:bg-gray-900 transition-colors">
+                  className="bg-gray-800 text-white rounded-md px-6 sm:px-10 mr-1 py-2 sm:py-1 hover:bg-gray-900 transition-colors">
                   Submit
                 </button>
                 <button

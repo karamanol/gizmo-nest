@@ -46,7 +46,7 @@ function FavouritesPage() {
         </div>
       ) : null}
 
-      <div className="grid grid-cols-4 gap-4 pt-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 pt-4">
         {isLoading
           ? new Array(favouriteProducts.length)
               .fill(0)

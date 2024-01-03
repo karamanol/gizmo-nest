@@ -85,6 +85,7 @@ function PromotedProduct() {
                         fill
                         alt={product?.name || "Promoted product"}
                         className="object-contain"
+                        quality={60}
                       />
                     </Link>
                   </div>

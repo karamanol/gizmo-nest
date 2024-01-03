@@ -18,7 +18,9 @@ function Layout({ children }: LayoutProps) {
       <CartContextProvider>
         <Toaster position="top-right" />
         <Header />
-        <div className="bg-gray-100 min-h-screen pb-16">{children}</div>
+        <div className="bg-gray-100 min-h-screen pb-16 min-w-[350px] overflow-x-auto">
+          {children}
+        </div>
         <Footer />
       </CartContextProvider>
     </TanstackProvider>

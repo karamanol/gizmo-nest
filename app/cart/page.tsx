@@ -98,10 +98,12 @@ function CartPage() {
   return (
     <main
       className={cn(
-        productsInCart.length ? "grid grid-cols-[1.5fr,1fr]" : "flex",
-        "center pt-6 gap-5 min-h-[20rem] "
+        productsInCart.length
+          ? "grid grid-rows-2 md:grid-cols-[1.5fr,1fr] md:grid-rows-1"
+          : "flex",
+        "center  py-6 gap-5 min-h-[20rem] "
       )}>
-      <article className="bg-white rounded-md p-6 flex flex-col min-w-full">
+      <article className="bg-white rounded-md p-2 sm:p-6 flex flex-col min-w-full">
         {!productsInCart.length ? (
           <div className="flex  flex-col items-center mt-6 text-lg">
             Your cart is empty

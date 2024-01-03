@@ -43,7 +43,8 @@ async function CategoriesPage() {
 
   return (
     <main className="center pt-6">
-      <div className="grid grid-cols-3 bg-white p-3 rounded-md text-gray-800">
+      <h2 className="text-3xl mb-2 text-gray-800 font-semibold">Categories:</h2>
+      <div className="grid grid-cols-2 sm:grid-cols-3 bg-white p-3 rounded-md text-gray-800">
         {categories.map((cat, _i, arr) => {
           const haveChildren = arrWithParents.includes(cat._id.toString());
           let link = cat._id.toString();

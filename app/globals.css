@@ -15,7 +15,7 @@
 }
 
 .center {
-  @apply max-w-5xl mx-auto px-6;
+  @apply max-w-5xl mx-auto px-2 sm:px-6;
 }
 
 .cart-input {

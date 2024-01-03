@@ -102,11 +102,11 @@ function AllProducts({ categoryId, headerText }: AllProductsProps) {
 
   return (
     <section className="center">
-      <h2 className="text-3xl font-semibold text-gray-800 flex gap-4 items-center pt-5 ">
+      <h2 className="sm:text-3xl text-2xl font-semibold text-gray-800 flex gap-4 items-center pt-5 ">
         <span>{headerText || "Our Products:"}</span>
       </h2>
 
-      <div className="flex items-center justify-between pt-6">
+      <div className="flex flex-col-reverse sm:flex-row gap-3 sm:gap-1 items-center justify-between pt-6">
         <div className="flex gap-5 items-center">
           <button
             className="bg-white p-1 rounded-md"
@@ -166,8 +166,7 @@ function AllProducts({ categoryId, headerText }: AllProductsProps) {
           )}
       </div>
 
-
-      <div className="grid grid-cols-4 gap-4 pt-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 pt-4">
         {isLoading ? (
           new Array(limit)
             .fill(0)
@@ -188,6 +187,7 @@ function AllProducts({ categoryId, headerText }: AllProductsProps) {
       {(Array.isArray(products) && products.length <= limit && page === 1) ||
       error ? null : (
         <Pagination
+          className="justify-center gap-7 sm:gap-3 sm:justify-end"
           page={page}
           resultsPerPage={limit}
           sortBy={sort}

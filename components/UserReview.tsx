@@ -25,11 +25,13 @@ function UserReview({ review }: UserReviewProps) {
       key={review._id}
       className="bg-slate-50 border border-slate-100 rounded-md p-3">
       <div className="flex flex-col gap-3">
-        <div className=" flex items-center gap-3 ">
-          <div className="h-8 w-8 bg-slate-500 rounded-full flex justify-center items-center shadow-sm">
+        <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-3">
+          <div className="h-8 w-8 min-w-[2rem] bg-slate-500 rounded-full flex justify-center items-center shadow-sm">
             <span className="uppercase text-gray-50">{review.userName[0]}</span>
           </div>
-          <span className="font-semibold min-w-[6rem] ">{review.userName}</span>
+          <span className="font-semibold min-w-[6rem] max-w-[20rem] overflow-hidden">
+            {review.userName}
+          </span>
           <div className="flex items-center gap-[2px] p-2">
             {[...Array(10)].map((_item, index) => {
               const currentStarRating = index + 1;
@@ -46,9 +48,9 @@ function UserReview({ review }: UserReviewProps) {
             })}
             <span className="ml-2 w-3 font-bold">{review.rating}</span>
           </div>
-          <span className="ml-auto">{formattedDate}</span>
+          <span className="sm:ml-auto">{formattedDate}</span>
         </div>
-        <p>{review.reviewText}</p>
+        <p className="overflow-x-scroll">{review.reviewText}</p>
       </div>
     </article>
   );

@@ -27,7 +27,7 @@ function Header() {
     // <header className="bg-gradient-to-r from-gray-500 to-neutral-800 ">
     <header
       className={cn(
-        " relative bg-gray-800 flex items-center sm:block  ",
+        " relative bg-gray-800 flex items-center sm:block min-w-[350px] overflow-x-auto ",
         isActiveMobileNavigation
           ? "flex-col h-full w-full fixed bg-gradient-to-b from-slate-800 to-slate-700 z-50"
           : "sm:h-28 lg:h-fit "

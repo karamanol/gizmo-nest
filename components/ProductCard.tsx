@@ -17,9 +17,9 @@ function ProductCard({ product }: ProductCardProps) {
     <article
       className={cn(
         product?.soldout ? "opacity-60" : "",
-        "border rounded-md bg-white p-4 gap-3 drop-shadow-sm flex flex-col justify-center items-center hover:scale-[102%] transition-transform"
+        "border rounded-md bg-white p-4 gap-3 drop-shadow-sm flex flex-col justify-center items-center md:hover:scale-[102%] transition-transform"
       )}>
-      <section className="relative h-40 w-full ">
+      <section className="relative h-52 sm:h-40 w-full ">
         <Link href={linkToProduct}>
           <Image
             src={product?.images?.[0] || "/product-default-list-350.jpg"}

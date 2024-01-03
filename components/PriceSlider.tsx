@@ -58,7 +58,7 @@ const PriceSlider = ({ handleConfirmPriceRange }: PriceSliderProps) => {
   };
 
   return (
-    <div className="bg-white h-32 p-8 flex flex-col justify-between items-center rounded-md drop-shadow">
+    <div className="bg-white h-32 p-6 md:p-8 flex flex-col justify-between items-center rounded-md drop-shadow">
       <InputRange
         allowSameValues
         classNames={classNames}
@@ -72,11 +72,11 @@ const PriceSlider = ({ handleConfirmPriceRange }: PriceSliderProps) => {
           setInputsValue(value as Range);
         }}
       />
-      <div className="flex justify-between mt-4 gap-6 h-8">
+      <div className="flex justify-between mt-4 gap-2 md:gap-6 h-8">
         <div className="flex gap-1">
-          <span className="flex items-center">From:</span>
+          <span className="sm:flex items-center hidden">From:</span>
           <input
-            className="border border-gray-300 bg-white  rounded-lg text-sm text-center"
+            className="border w-16 md:w-fit border-gray-300 bg-white  rounded-lg text-sm  text-center"
             type="number"
             name="min"
             // defaultValue={inputsValue.min}
@@ -85,9 +85,12 @@ const PriceSlider = ({ handleConfirmPriceRange }: PriceSliderProps) => {
           />
         </div>
         <div className="flex gap-1">
-          <span className="flex items-center">To:</span>
+          <span className="hidden sm:flex items-center text-sm md:text-base">
+            To:
+          </span>
+          <span className="sm:hidden font-semibold mr-1 translate-y-1">-</span>
           <input
-            className="border border-gray-300 bg-white rounded-lg text-sm text-center"
+            className="border w-16 md:w-fit border-gray-300 bg-white rounded-lg text-sm text-center"
             type="number"
             name="max"
             // defaultValue={inputsValue.max}
@@ -97,7 +100,7 @@ const PriceSlider = ({ handleConfirmPriceRange }: PriceSliderProps) => {
         </div>
         <button
           type="button"
-          className=" bg-sky-800 text-sky-50 hover:bg-sky-700 transition-colors py-1 px-3 rounded-md"
+          className=" bg-sky-800 text-sky-50 hover:bg-sky-700 transition-colors py-1 px-2 sm:px-3 rounded-md"
           onClick={() => handleConfirmPriceRange(rangeValue)}>
           Confirm
         </button>

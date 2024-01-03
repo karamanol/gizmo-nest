@@ -68,8 +68,8 @@ export default function ImagesVerticalCarousel({
   };
 
   return (
-    <section className="flex gap-3 items-center">
-      <div className=" flex flex-col w-fit">
+    <section className="flex flex-grow gap-3 items-center">
+      <div className=" flex flex-col w-fit ">
         <button
           onClick={handlePrev}
           className="flex justify-center items-center">
@@ -91,7 +91,7 @@ export default function ImagesVerticalCarousel({
           preventClickOnDrag
           duration={200}
           bound
-          className="h-96"
+          className="h-96 "
           ref={flicking}
           horizontal={false}
           align="prev"
@@ -109,7 +109,7 @@ export default function ImagesVerticalCarousel({
               <button
                 type="button"
                 key={img}
-                className=" h-20 w-20 relative rounded-lg m-1 ">
+                className="h-14 w-14 sm:h-20 sm:w-20 relative rounded-lg m-1 ">
                 <Image
                   draggable={false}
                   onClick={() => handleClickImage(img)}
@@ -145,24 +145,26 @@ export default function ImagesVerticalCarousel({
           }
         </button>
       </div>
+
       <button
         type="button"
         onClick={() => setIsModalOpen((isOpen) => !isOpen)}
-        className="relative h-96 w-96 mx-3 group">
+        className="relative h-72 w-48 sm:h-96 sm:w-96 lg:mx-3 group mx-auto">
         <Image
-          className="object-contain rounded-lg border border-gray-20 p-2 "
+          className="object-contain rounded-lg border border-gray-20 sm:p-2 "
           fill
           src={activeImage || defaultImage}
           alt="Product image"
         />
         <TbZoomScan className="absolute h-10 w-10 text-gray-700 opacity-0 group-hover:opacity-80 right-3 top-3 transition-all " />
       </button>
+
       <Modal isOpen={isModalOpen} setIsOpen={setIsModalOpen}>
         <Image
           className="object-contain p-2"
           // fill
-          width={600}
-          height={600}
+          width={500}
+          height={500}
           src={activeImage || defaultImage}
           alt="Product zoomed image"
           quality={85}

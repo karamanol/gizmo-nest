@@ -44,8 +44,21 @@
   }
 }
 
+@keyframes from-top-to-center {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
 .skeleton-animation {
   animation: from-left-to-right 1.7s infinite;
+}
+
+.move-down-animation {
+  animation: from-top-to-center 0.4s normal;
 }
 
 .header-link {

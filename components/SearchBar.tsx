@@ -39,7 +39,8 @@ const SearchBar = ({
         className={cn(
           "pl-12  border-1  border-gray-300 bg-slate-100 h-10 rounded-md text-sm w-32 focus:w-96 focus:outline-none transition-all focus:bg-white lg:w-32 sm:w-96",
           isLoading || searchTerm ? "w-96 pr-11 sm:pr-3" : "pr-3",
-          isOpenMobileView ? "w-full lg:w-96" : ""
+          isOpenMobileView ? "w-full lg:w-96" : "",
+          searchTerm && searchTerm.length > 2 ? "!w-96" : ""
         )}
       />
       {isLoading && (

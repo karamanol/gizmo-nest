@@ -2,7 +2,7 @@
 
 ## Description
 
-Gadget Shop is an e-commerce website that sells gadgets like smartphones, laptops, headphones, etc. It's built with Next.js, TypeScript, Tailwind CSS, TanStack Query, Stripe and MongoDB. For managing products, orders and categories check gizmo-nest-admin project.
+GizmoNest is an e-commerce website that sells gadgets like smartphones, laptops, headphones, etc. It's built with Next.js, TypeScript, Tailwind CSS, TanStack Query, Stripe and MongoDB. For managing products, orders and categories check gizmo-nest-admin project.
 
 ## Features
 

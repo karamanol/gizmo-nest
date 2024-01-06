@@ -34,8 +34,8 @@ GizmoNest is an e-commerce website that sells gadgets like smartphones, laptops,
 
 ## .env.local file must be created and contain following variables for running:
 
-MONGODB_URI
-STRIPE_SECRET_TEST_KEY
-STRIPE_WEBHOOK_SECRET_TEST_KEY
-NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
-NEXT_PUBLIC_URL
+- MONGODB_URI
+- STRIPE_SECRET_TEST_KEY
+- STRIPE_WEBHOOK_SECRET_TEST_KEY
+- NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+- NEXT_PUBLIC_URL

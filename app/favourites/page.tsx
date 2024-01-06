@@ -31,7 +31,7 @@ function FavouritesPage() {
 
       {Array.isArray(favourites) && favourites.length === 0 ? (
         <div className="flex justify-center items-center h-[80vh]">
-          <span className="text-2xl">
+          <span className=" text-xl sm:text-2xl text-center">
             Your favorites list is empty. Start adding your favorite products
             now!
           </span>

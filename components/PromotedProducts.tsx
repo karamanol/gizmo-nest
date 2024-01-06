@@ -88,7 +88,7 @@ function PromotedProduct() {
                         }
                         fill
                         alt={product?.name || "Promoted product"}
-                        className="object-contain"
+                        className="object-contain drop-shadow-xl"
                         quality={60}
                       />
                     </Link>

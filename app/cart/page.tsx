@@ -9,6 +9,7 @@ import { useCart } from "@/context/CartContext";
 import { cn } from "@/lib/cn";
 import { getErrorMessage } from "@/utils/getErrorMessage";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
+import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
@@ -103,8 +104,13 @@ function CartPage() {
       )}>
       <article className="bg-white rounded-md p-2 sm:p-6 flex flex-col min-w-full">
         {!productsInCart.length ? (
-          <div className="flex  flex-col items-center mt-6 text-lg">
+          <div className="flex gap-12 flex-col sm:text-2xl items-center mt-6 text-lg">
             Your cart is empty
+            <Link
+              href={"/products"}
+              className="border rounded-md px-3 py-1 bg-[#306c8a] text-gray-50 hover:opacity-90 transition-colors">
+              Start shopping!
+            </Link>
           </div>
         ) : (
           <div>

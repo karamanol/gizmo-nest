@@ -1,5 +1,3 @@
-// "use client";
-
 import AllProducts from "@/components/AllProducts";
 
 function CategoryPage({ params }: { params: { categoryId: string } }) {

@@ -71,6 +71,7 @@ export default function ImagesVerticalCarousel({
     <section className="flex flex-grow gap-3 items-center">
       <div className=" flex flex-col w-fit ">
         <button
+          aria-label="Previous"
           onClick={handlePrev}
           className="flex justify-center items-center">
           {
@@ -97,22 +98,20 @@ export default function ImagesVerticalCarousel({
           align="prev"
           onWillChange={(e) => {
             setActiveImage(imagesArr?.[e.index] ?? defaultImage);
-          }}
-          // panelsPerView={4}
-          // circular={true}
-        >
+          }}>
           {(Array.isArray(imagesArr) && imagesArr?.length > 0
             ? imagesArr
             : [defaultImage]
           )?.map((img, i) => {
             return (
               <button
+                aria-label={`Select ${i} image`}
                 type="button"
                 key={img}
+                onClick={() => handleClickImage(img)}
                 className="h-14 w-14 sm:h-20 sm:w-20 relative rounded-lg m-1 ">
                 <Image
                   draggable={false}
-                  onClick={() => handleClickImage(img)}
                   fill
                   src={img}
                   alt={`Product image ${i + 1}`}
@@ -129,6 +128,7 @@ export default function ImagesVerticalCarousel({
           })}
         </Flicking>
         <button
+          aria-label="Next Image"
           onClick={handleNext}
           className="flex justify-center items-center">
           {
@@ -147,6 +147,7 @@ export default function ImagesVerticalCarousel({
       </div>
 
       <button
+        aria-label="Zoom image"
         type="button"
         onClick={() => setIsModalOpen((isOpen) => !isOpen)}
         className="relative h-72 w-48 sm:h-96 sm:w-96 lg:mx-3 group mx-auto">

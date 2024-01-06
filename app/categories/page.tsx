@@ -1,5 +1,3 @@
-// "use client";
-
 import { IoIosLaptop } from "react-icons/io";
 import { IoPhonePortraitOutline } from "react-icons/io5";
 import { RiAppleLine } from "react-icons/ri";

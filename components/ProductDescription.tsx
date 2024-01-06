@@ -7,7 +7,6 @@ type ProductDescriptionProps = {
 
 function ProductDescription({ product }: ProductDescriptionProps) {
   const specs = JSON.parse(product?.specs || "{}");
-  // console.log(specs);
 
   return (
     <section className="center pt-4 ">

@@ -29,7 +29,6 @@ export function useGetProductByName(searchString: string) {
           }
         } catch (err) {
           const errorMessage = getErrorMessage(err);
-          // console.log(errorMessage);
           throw new Error(errorMessage);
         } finally {
           setIsLoading(false);

@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* *{
-  border: 1px solid red
-} */
 /* logo accent #306c8a */
 .bg-main {
   @apply bg-gray-800;
@@ -21,19 +18,6 @@
 .cart-input {
   @apply border rounded-md p-2 mb-4 items-start shadow-sm w-full;
 }
-
-/* @keyframes fadeIn {
-  0% {
-    filter: blur(2rem);
-  }
-  100% {
-    filter: blur(0);
-  }
-}
-
-.fadeIn-animated {
-  animation: fadeIn 0.3s linear;
-} */
 
 @keyframes from-left-to-right {
   0% {

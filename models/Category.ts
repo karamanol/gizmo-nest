@@ -34,11 +34,3 @@ export type CategoryType = {
   parentCat?: string;
   properties: CategoryPropertyType[];
 };
-
-// export const example = {
-//   name: "TV's",
-//   parentCat: "655a3ffb65565c857b08b397",
-//   properties: [
-//     { propertyName: "diagonal", propertyValuesArr: ["55", "65", "78"] },
-//   ],
-// };

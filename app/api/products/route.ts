@@ -35,7 +35,6 @@ export async function GET(request: NextRequest) {
     if (id) {
       const product = await Product.findById(id).populate({
         path: "category",
-        // populate: { path: "parentCat" },
       });
       return Response.json({ status: 200, data: product });
     }

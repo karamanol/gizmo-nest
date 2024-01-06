@@ -6,6 +6,7 @@ import Stripe from "stripe";
 
 export const dynamic = "force-dynamic";
 
+// don't forget it's unique per webhook url!
 const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET_TEST_KEY || "";
 
 export async function POST(request: Request) {
@@ -36,7 +37,6 @@ export async function POST(request: Request) {
     switch (event.type) {
       // namely in checkout.session.completed event type i can access metadata where i stored orderId
       case "checkout.session.completed":
-        console.log("checkout.session.completed", event.data.object);
         const orderId = event.data.object.metadata?.orderId;
         const isPaid = event.data.object.payment_status === "paid";
 

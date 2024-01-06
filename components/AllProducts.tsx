@@ -72,7 +72,8 @@ function AllProducts({ categoryId, headerText }: AllProductsProps) {
   const handleChangeSort = (e: ChangeEvent<HTMLSelectElement>) => {
     router.push(
       `?${new URLSearchParams({
-        page: page.toString(),
+        // page: page.toString(),
+        page: "1",
         limit: limit.toString(),
         sort: e.target.value,
       })}`
@@ -82,7 +83,8 @@ function AllProducts({ categoryId, headerText }: AllProductsProps) {
   const handleChangeLimit = (e: ChangeEvent<HTMLSelectElement>) => {
     router.push(
       `?${new URLSearchParams({
-        page: page.toString(),
+        // page: page.toString(),
+        page: "1",
         limit: e.target.value,
         sort: sort,
       })}`
@@ -124,6 +126,7 @@ function AllProducts({ categoryId, headerText }: AllProductsProps) {
                 {confirmedPriceRangeValue.max}
               </span>
               <button
+                aria-label="Remove price filter"
                 className="hover:text-red-800"
                 onClick={() => handleConfirmPriceRange(initialState)}>
                 <ImCancelCircle />

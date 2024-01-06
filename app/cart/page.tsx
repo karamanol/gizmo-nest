@@ -93,8 +93,6 @@ function CartPage() {
     return <PaymentCanceled />;
   }
 
-  // console.log("full info products", fullInfoProductsInCart);
-
   return (
     <main
       className={cn(

@@ -59,7 +59,6 @@ function CartForm({ fullInfoProductsInCart }: CartFormProps) {
     } catch (err) {
       toast.error("Failed to create order");
     }
-    // console.log(data);
   };
 
   const { 0: parent } = useAutoAnimate(); // smooth animation hook

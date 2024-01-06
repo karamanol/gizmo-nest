@@ -67,10 +67,10 @@ function AddReviewAsDropdown({ productName, productId }: AddReviewProps) {
         router.refresh();
       } else if (data.error) {
         toast.error("Error adding review");
-        console.log(getErrorMessage(data.error));
+        // console.log(getErrorMessage(data.error));
       }
     } catch (err) {
-      console.log(getErrorMessage(err));
+      // console.log(getErrorMessage(err));
       toast.error("Failed to create order");
     }
   };
@@ -126,6 +126,7 @@ function AddReviewAsDropdown({ productName, productId }: AddReviewProps) {
                       const currentStarRating = index + 1;
                       return (
                         <button
+                          aria-label={`Select ${index + 1} stars`}
                           key={index}
                           type="button"
                           onClick={() => {
@@ -167,11 +168,13 @@ function AddReviewAsDropdown({ productName, productId }: AddReviewProps) {
 
               <div className="flex mt-3 justify-between lg:gap-3">
                 <button
+                  aria-label="Submit"
                   type="submit"
                   className="bg-gray-800 text-white rounded-md px-6 sm:px-10 mr-1 py-2 sm:py-1 hover:bg-gray-900 transition-colors">
                   Submit
                 </button>
                 <button
+                  aria-label="Cancel"
                   type="reset"
                   className="bg-gray-200 text-gray-700 rounded-md px-10 py-1 hover:bg-gray-300 transition-colors"
                   onClick={handleCancel}>

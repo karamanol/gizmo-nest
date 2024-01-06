@@ -8,8 +8,9 @@ import Flicking, { ViewportSlot } from "@egjs/react-flicking";
 import { useEffect, useState } from "react";
 import { getPromotedProducs } from "@/services/frontend/getPromotedProducts";
 import { AutoPlay, Arrow } from "@egjs/flicking-plugins";
-import "@egjs/react-flicking/dist/flicking.css";
-import "@egjs/flicking-plugins/dist/arrow.css";
+import SpinnerCircle from "./SpinnerCircle";
+import "../css/flicking.css";
+import "../css/flickingArrow.css";
 
 const promotedProductsAmount = 3;
 
@@ -33,7 +34,10 @@ function PromotedProduct() {
 
   return (
     <div className="bg-gradient-to-b from-gray-800 to-gray-700 sm:pb-8">
-      <div className="max-w-5xl mx-auto px-3 sm:px-10 ">
+      <div className=" relative max-w-5xl mx-auto px-3 sm:px-10 ">
+        {!promotedProducts?.length ? (
+          <SpinnerCircle className="absolute inset-0 scale-[200%]" />
+        ) : null}
         <Flicking
           plugins={plugins}
           inputType={["mouse", "touch"]}
@@ -41,7 +45,7 @@ function PromotedProduct() {
           // bound
           interruptable
           deceleration={0.01}
-          className="lg:h-[26rem]"
+          className="min-h-[40rem] lg:h-[26rem]"
           // ref={flicking}
           align="center"
           // onWillChange={(e) => {
@@ -52,7 +56,7 @@ function PromotedProduct() {
           {Array.isArray(promotedProducts) && promotedProducts.length > 0
             ? promotedProducts.map((product) => {
                 return (
-                  <div
+                  <article
                     key={product?._id}
                     className="card-panel relative grid grid-rows-[1fr,1.2fr] lg:grid-cols-[1.2fr,1fr]  center pt-8 pb-6 gap-3 !px-14 ">
                     <div className="flex flex-col !my-auto lg:m-0 row-start-2 lg:row-start-auto h-fit ">
@@ -88,7 +92,7 @@ function PromotedProduct() {
                         quality={60}
                       />
                     </Link>
-                  </div>
+                  </article>
                 );
               })
             : null}

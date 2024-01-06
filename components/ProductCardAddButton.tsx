@@ -20,6 +20,7 @@ function ProductCardAddButton({
 
   return (
     <button
+      aria-label="Add or remove from cart"
       disabled={disabled}
       className={cn(
         alreadyInCart

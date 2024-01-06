@@ -5,11 +5,11 @@ function PaymentSuccess() {
   return (
     <div className="pt-6 mx-6">
       <article className="center flex flex-col items-center bg-white rounded-md ">
-        <h1 className=" text-4xl  font-semibold text-gray-900 mb-6 mt-20">
+        <h1 className=" text-2xl sm:text-4xl  font-semibold text-gray-900 mb-6 mt-20">
           Payment accepted!
         </h1>
         <IoCheckmarkCircle className="text-teal-700/80 h-32 w-32" />
-        <p className="mt-8 px-36 text-center">
+        <p className="mt-8 px-6 sm:px-12 md:px-36 text-center">
           Thank you for shopping with us! Your order has been successfully
           processed and will be shipped out soon. You will receive an email with
           tracking information once your order has shipped.

@@ -5,7 +5,6 @@ import SpinnerCircle from "./SpinnerCircle";
 const productsAmount = 8;
 async function LatestProducts() {
   const latestProducts = await getLatestUpdatedProducts(productsAmount);
-  // console.log(latestProducts);
 
   return (
     <section className="center">

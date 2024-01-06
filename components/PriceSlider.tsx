@@ -105,6 +105,7 @@ const PriceSlider = ({ handleConfirmPriceRange }: PriceSliderProps) => {
           Confirm
         </button>
         <button
+          aria-label="Reset price filters"
           className="bg-slate-200 px-2 py-1 rounded-md hover:bg-slate-300 transition-colors"
           onClick={() => {
             setRangeValue(initialState);

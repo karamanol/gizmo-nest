@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
-// import { Roboto_Condensed } from "next/font/google";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Layout from "@/components/Layout";
 
-// const roboto = Roboto_Condensed({ subsets: ["latin"] });
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {

@@ -8,7 +8,6 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/cn";
 import SearchBar from "./SearchBar";
 import { IoMenu } from "react-icons/io5";
-import { MdMenuOpen } from "react-icons/md";
 import { useState } from "react";
 
 const font = Share_Tech({ weight: "400", subsets: ["latin"] });
@@ -24,31 +23,32 @@ function Header() {
   };
 
   return (
-    // <header className="bg-gradient-to-r from-gray-500 to-neutral-800 ">
     <header
       className={cn(
         " relative bg-gray-800 flex items-center sm:block min-w-[350px] ",
         isActiveMobileNavigation
-          ? "move-down-animation flex-col h-full w-full fixed bg-gradient-to-b from-slate-800 to-slate-700 z-50"
+          ? "move-down-animation flex-col h-[150%] w-full fixed bg-gradient-to-b from-slate-800 to-slate-700 z-50"
           : "sm:h-28 lg:h-fit"
       )}>
       <button
+        aria-label="Open navigation"
         className={cn(
           "w-16 h-16  flex justify-center items-center sm:hidden absolute",
           isActiveMobileNavigation ? "left-0 top-0 sm:flex" : ""
         )}
         type="button"
         onClick={() => setIsActiveMobileNavigation((is) => !is)}>
-        {isActiveMobileNavigation ? (
-          <MdMenuOpen className="h-10 w-10 text-gray-50 mt-3" />
-        ) : (
-          <IoMenu className="h-10 w-10 text-gray-50" />
-        )}
+        <IoMenu
+          className={cn(
+            "h-10 w-10 text-gray-50",
+            isActiveMobileNavigation ? "mt-4" : ""
+          )}
+        />
       </button>
 
       <div
         className={cn(
-          "mx-auto px-6 sm:px-3 md:px-6 lg:px-2 xl:px-6 flex items-center  justify-between sm:flex-col ",
+          "mx-auto px-6 sm:px-3 md:px-6 lg:px-2 xl:px-6 flex items-center  justify-between sm:flex-col",
           isActiveMobileNavigation ? "h-fit flex-col gap-3" : "h-20 lg:flex-row"
         )}>
         <div

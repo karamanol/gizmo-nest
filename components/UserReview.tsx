@@ -29,7 +29,7 @@ function UserReview({ review }: UserReviewProps) {
           <div className="h-8 w-8 min-w-[2rem] bg-slate-500 rounded-full flex justify-center items-center shadow-sm">
             <span className="uppercase text-gray-50">{review.userName[0]}</span>
           </div>
-          <span className="font-semibold min-w-[6rem] max-w-[20rem] overflow-hidden">
+          <span className=" text-center sm:text-left font-semibold min-w-[6rem] max-w-[20rem] overflow-hidden">
             {review.userName}
           </span>
           <div className="flex items-center gap-[2px] p-2">

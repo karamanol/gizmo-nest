@@ -50,6 +50,7 @@ function AddToFavouriteButton({ productId }: AddToFavouriteButtonProps) {
         isAddedToFavourite ? "border-red-400 bg-red-100/40" : "bg-gray-100/70"
       )}>
       <button
+        aria-label="Add to favourites"
         onClick={handleClick}
         className={cn(
           "h-20 w-10 transition-transform duration-300 hover:opacity-75",

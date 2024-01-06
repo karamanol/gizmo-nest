@@ -45,13 +45,13 @@ const Modal = ({ isOpen, setIsOpen, children }: ModalProps) => {
             className="bg-white p-8 rounded shadow-lg max-w-[90%]">
             {/* close button */}
             <button
+              aria-label="Close modal"
               className="absolute z-50 top-4 right-4 text-gray-100  hover:text-gray-500 transition-colors"
               onClick={() => setIsOpen(false)}>
               <span className="text-8xl ">&times;</span>
             </button>
 
             {/* modal content */}
-
             {children}
           </div>
         </div>

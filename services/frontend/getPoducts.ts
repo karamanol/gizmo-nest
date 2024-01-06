@@ -27,11 +27,10 @@ export async function getProducts({
     })}`;
     const response = await fetch(url, { method: "GET" });
     const data = await response.json();
-    // console.log(data);
     return data.data as ProductType[];
   } catch (err) {
     const errorMessage = getErrorMessage(err);
-    console.log(errorMessage);
+    // console.log(errorMessage);
     throw new Error(errorMessage);
   }
 }

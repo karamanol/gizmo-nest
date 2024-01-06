@@ -16,7 +16,6 @@ async function ProductPage({ params }: { params: { id: string } }) {
   }
   const productId = product?._id.toString() || "";
   const productFinalPrice = (product?.price ?? 0) - (product?.discount ?? 0);
-  console.log("one product page ===========================", product);
 
   return (
     <>

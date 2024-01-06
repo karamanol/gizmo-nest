@@ -48,6 +48,7 @@ const SearchBar = ({
       )}
       {!isLoading && searchTerm.length > 0 && (
         <button
+          aria-label="Clear search"
           className="h-6 w-6 absolute right-3 top-[50%] -translate-y-[52%] scale-[150%] hover:scale-[175%]"
           type="button"
           onClick={() => {

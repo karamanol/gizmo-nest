@@ -4,7 +4,7 @@ import { ProductType } from "@/services/server/getOneProductById";
 import { getErrorMessage } from "@/utils/getErrorMessage";
 import { NextRequest } from "next/server";
 
-export const dynamic = "force-dynamic";
+// export const dynamic = "force-dynamic";
 
 const defaultPromotedAmount = "3";
 

@@ -5,11 +5,10 @@ function PaymentCanceled() {
   return (
     <div className="pt-6 mx-6">
       <article className="center flex flex-col items-center bg-white rounded-md ">
-        <h1 className=" text-4xl  font-semibold text-gray-900 mb-6 mt-20">
-          Payment canceled!
+        <h1 className="text-center text-4xl  font-semibold text-gray-900 mb-6 mt-20">
+          Payment cancelled!
         </h1>
         <CiMoneyCheck1 className="text-gray-800 h-32 w-32" />
-        {/* <p className="mt-8 px-36 text-center"></p> */}
         <Link
           replace
           href={"/"}

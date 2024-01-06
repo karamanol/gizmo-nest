@@ -58,6 +58,7 @@ function CartItem({
       <div className="flex justify-between items-center group">
         <h3 className="text-xs sm:text-base ml-1">{product?.name}</h3>
         <button
+          aria-label="Delete"
           className="md:opacity-0 group-hover:opacity-100 hover:text-red-700 transition-all duration-200 ml-1"
           onClick={() => {
             setFullInfoProductsInCart((prev) =>
@@ -73,12 +74,14 @@ function CartItem({
       {product?.quantity && product.quantity > 0 ? (
         <div className="flex justify-center items-center gap-1">
           <button
+            aria-label="Decrease quantity"
             className=" flex items-center justify-center"
             onClick={() => handleChangeQuantityByOne(product._id, "-")}>
             <FaMinusCircle className="text-gray-700 hover:text-[#306c8a] transition-colors h-[14px]" />
           </button>
           <span>{product.quantity}</span>
           <button
+            aria-label="Increase quantity"
             type="button"
             className="flex items-center justify-center "
             onClick={() => handleChangeQuantityByOne(product._id, "+")}>
@@ -90,6 +93,7 @@ function CartItem({
           <span className="text-center text-sm text-red-700">Remove?</span>
           <div className="flex gap-3 justify-center">
             <button
+              aria-label="Remove"
               onClick={() => {
                 setProductsInCart((prev) =>
                   prev.filter((id) => id !== product._id)
@@ -97,13 +101,12 @@ function CartItem({
               }}>
               <HiCheckCircle className="h-[18px] w-[18px] text-gray-700 hover:text-[#306c8a]" />
             </button>
-            <button>
-              <MdCancel
-                className="h-[18px] w-[18px] text-gray-700 hover:text-[#306c8a]"
-                onClick={() => {
-                  handleChangeQuantityByOne(product._id, "+");
-                }}
-              />
+            <button
+              aria-label="Cancel"
+              onClick={() => {
+                handleChangeQuantityByOne(product._id, "+");
+              }}>
+              <MdCancel className="h-[18px] w-[18px] text-gray-700 hover:text-[#306c8a]" />
             </button>
           </div>
         </div>

@@ -16,7 +16,7 @@ export async function POST(request: Request) {
       rating,
       product: productId,
     });
-    console.log(newReview);
+    console.log(`User ${name} added a review: `, newReview?.review);
 
     return Response.json({ status: 200, data: newReview });
   } catch (err) {

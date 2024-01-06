@@ -76,7 +76,9 @@ function AddReviewAsDropdown({ productName, productId }: AddReviewProps) {
   };
 
   return (
-    <div className={cn("bg-white p-4 rounded-md")} ref={parent}>
+    <div
+      className={cn("bg-white p-4 rounded-md overflow-y-hidden")}
+      ref={parent}>
       <div
         className="flex justify-start items-center gap-3 cursor-pointer"
         onClick={handleOpen}>

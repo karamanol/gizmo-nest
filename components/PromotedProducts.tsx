@@ -45,7 +45,7 @@ function PromotedProduct() {
           // bound
           interruptable
           deceleration={0.01}
-          className="min-h-[40rem] lg:h-[26rem]"
+          className="min-h-[40rem] lg:min-h-[26rem] lg:h-[26rem]"
           // ref={flicking}
           align="center"
           // onWillChange={(e) => {
@@ -58,7 +58,7 @@ function PromotedProduct() {
                 return (
                   <article
                     key={product?._id}
-                    className="card-panel relative grid grid-rows-[1fr,1.2fr] lg:grid-cols-[1.2fr,1fr]  center pt-8 pb-6 gap-3 !px-14 ">
+                    className="card-panel relative grid grid-rows-[1fr,1.2fr] lg:grid-cols-[1.2fr,1fr] lg:grid-rows-1  center pt-8 pb-6 gap-3 !px-14 ">
                     <div className="flex flex-col !my-auto lg:m-0 row-start-2 lg:row-start-auto h-fit ">
                       <h1 className="text-gray-200 text-3xl mb-2 text-center lg:text-left">
                         {product?.name}
@@ -79,7 +79,7 @@ function PromotedProduct() {
                     <Link
                       href={`/product/${product?._id}`}
                       draggable={false}
-                      className="relative rounded-md h-96">
+                      className="relative rounded-md h-96 my-auto">
                       <Image
                         draggable={false}
                         src={

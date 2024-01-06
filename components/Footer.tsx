@@ -91,21 +91,21 @@ function Footer() {
           <div className="flex xl:space-x-4 flex-col xl:flex-row  ">
             <Link
               prefetch={false}
-              href="#"
+              href="https://www.facebook.com"
               target="_blank"
               className="hover:text-gray-400 flex gap-1 items-center">
               <IoLogoFacebook className="h-5 w-5 scale-110" /> Facebook
             </Link>
             <Link
               prefetch={false}
-              href="#"
+              href="https://twitter.com"
               target="_blank"
               className="hover:text-gray-400 flex gap-1 items-center">
               <FaSquareXTwitter className="h-5 w-5" /> Twitter
             </Link>
             <Link
               prefetch={false}
-              href="#"
+              href="https://www.instagram.com/"
               target="_blank"
               className="hover:text-gray-400 flex gap-1 items-center">
               <FaInstagramSquare className="h-5 w-5" /> Instagram

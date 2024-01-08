@@ -50,7 +50,7 @@ function UserReview({ review }: UserReviewProps) {
           </div>
           <span className="sm:ml-auto">{formattedDate}</span>
         </div>
-        <p className="overflow-x-scroll">{review.reviewText}</p>
+        <p className="overflow-x-auto">{review.reviewText}</p>
       </div>
     </article>
   );

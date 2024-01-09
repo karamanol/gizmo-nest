@@ -9,8 +9,8 @@ import { useEffect, useState } from "react";
 import { getPromotedProducs } from "@/services/frontend/getPromotedProducts";
 import { AutoPlay, Arrow } from "@egjs/flicking-plugins";
 import SpinnerCircle from "./SpinnerCircle";
-import "../css/flicking.css";
-import "../css/flickingArrow.css";
+import "./carousel-css/flicking.css";
+import "./carousel-css/flickingArrow.css";
 
 const promotedProductsAmount = 3;
 

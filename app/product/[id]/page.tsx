@@ -5,6 +5,7 @@ import ProductDescription from "@/components/ProductDescription";
 import ProductReviews from "@/components/ProductReviews";
 import WideAddProductButton from "@/components/WideAddProductButton";
 import { getOneProductById } from "@/services/server/getOneProductById";
+import { notFound } from "next/navigation";
 import { FaCheck } from "react-icons/fa6";
 import { RiEmotionSadLine } from "react-icons/ri";
 
@@ -12,7 +13,8 @@ async function ProductPage({ params }: { params: { id: string } }) {
   const product = await getOneProductById(params.id);
 
   if (!product) {
-    return <div className="center">Page does not exist</div>;
+    // return <div className="center">Page does not exist</div>;
+    notFound();
   }
   const productId = product?._id.toString() || "";
   const productFinalPrice = (product?.price ?? 0) - (product?.discount ?? 0);

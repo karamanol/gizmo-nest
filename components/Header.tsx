@@ -139,7 +139,7 @@ function Header() {
               pathName === "/favourites" ? "header-link-active" : "",
               isActiveMobileNavigation ? "!text-3xl" : "lg:text-sm xl:text-base"
             )}>
-            Favourites ({favouriteProducts.length})
+            Favourites <span className="w-8">({favouriteProducts.length})</span>
           </Link>
 
           <Link
@@ -150,7 +150,7 @@ function Header() {
               pathName === "/cart" ? "header-link-active" : "",
               isActiveMobileNavigation ? "!text-3xl" : "lg:text-sm xl:text-base"
             )}>
-            Cart ({productsInCart.length})
+            Cart <span className="w-8">({productsInCart.length})</span>
           </Link>
         </nav>
       </div>

@@ -3,6 +3,8 @@ import ProductCard from "./ProductCard";
 import SpinnerCircle from "./SpinnerCircle";
 
 const productsAmount = 8;
+const threeHoursInSeconds = 3600 * 3;
+export const revalidate = threeHoursInSeconds;
 async function LatestProducts() {
   const latestProducts = await getLatestUpdatedProducts(productsAmount);
 

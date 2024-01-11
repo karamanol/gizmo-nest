@@ -25,6 +25,9 @@ const icons: { [key: string]: JSX.Element } = {
   unknown: <MdDeviceUnknown className={className} />,
 };
 
+const sixHoursInSeconds = 3600 * 6;
+export const revalidate = sixHoursInSeconds;
+
 async function CategoriesPage() {
   await mongooseConnect();
   const categories: Array<CategoryType> = await Category.find();

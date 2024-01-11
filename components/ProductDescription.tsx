@@ -40,7 +40,9 @@ function ProductDescription({ product }: ProductDescriptionProps) {
               </section>
             ) : (
               <div className="flex items-center justify-center flex-grow">
-                <span className="text-xl font-semibold">No information</span>
+                <span className="text-xl font-semibold">
+                  No features information available
+                </span>
               </div>
             )}
 

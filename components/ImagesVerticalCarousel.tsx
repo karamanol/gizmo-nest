@@ -150,7 +150,7 @@ export default function ImagesVerticalCarousel({
         aria-label="Zoom image"
         type="button"
         onClick={() => setIsModalOpen((isOpen) => !isOpen)}
-        className="relative h-72 w-48 sm:h-96 sm:w-96 lg:mx-3 group mx-auto">
+        className="relative h-72 w-60 sm:h-96 sm:w-96 lg:mx-3 group mx-auto">
         <Image
           className="object-contain rounded-lg border border-gray-20 sm:p-2 "
           fill

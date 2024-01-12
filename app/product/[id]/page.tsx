@@ -1,5 +1,6 @@
 import AddReviewAsDropdown from "@/components/AddReviewAsDropdown";
 import AddToFavouriteButton from "@/components/AddToFavouriteButton";
+import Breadcrumbs, { CrumbType } from "@/components/Breadcrumbs";
 import ImagesVerticalCarousel from "@/components/ImagesVerticalCarousel";
 import ProductDescription from "@/components/ProductDescription";
 import ProductReviews from "@/components/ProductReviews";
@@ -19,9 +20,24 @@ async function ProductPage({ params }: { params: { id: string } }) {
   const productId = product?._id.toString() || "";
   const productFinalPrice = (product?.price ?? 0) - (product?.discount ?? 0);
 
+  const crumbs: CrumbType[] = [
+    { name: "Products", link: { pathname: "/products" } },
+    {
+      name: product.category?.name || "Category",
+      link: {
+        pathname: `/categories/${product.category?._id.toString()}`,
+      },
+    },
+    {
+      name: product.name,
+      link: { pathname: `/product/${product._id.toString()}` },
+    },
+  ];
+
   return (
     <>
-      <div className="center  pt-6 ">
+      <div className="center  pt-3 ">
+        <Breadcrumbs crumbs={crumbs} className="mb-1 ml-1" />
         <article className="grid grid-rows-[1.3fr,1fr] lg:grid-rows-1 lg:grid-cols-[1.3fr,1fr]  bg-white p-4 rounded-md">
           <div className="flex">
             <ImagesVerticalCarousel imagesArr={product?.images} />

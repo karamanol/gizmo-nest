@@ -1,4 +1,5 @@
 import { mongooseConnect } from "@/lib/mongoose";
+import { Category } from "@/models/Category";
 import { Product } from "@/models/Product";
 import { Review } from "@/models/Review";
 import { getErrorMessage } from "@/utils/getErrorMessage";
@@ -11,7 +12,7 @@ export type ProductType =
       price: number;
       images: string[];
       discount: number;
-      category?: string;
+      category?: { _id: string; name: string };
       productProperties?: { [key: string]: string };
       updatedAt: Date;
       createdAt?: Date;
@@ -36,13 +37,18 @@ export async function getOneProductById(id: string) {
   if (!id) return;
   try {
     await mongooseConnect();
-    const _review = Review; // looks like unused import, but needed to prevent mongoose error 'Schema hasn't been registered for model "Review"'
 
-    const product = await Product.findOne({ _id: id }).populate({
-      path: "reviews",
-      select: "reviewText userName rating createdAt",
-      options: { limit: 3, sort: { createdAt: -1 } },
-    });
+    // looks like unused imports, but needed to prevent mongoose error 'Schema hasn't been registered for model "Review"'
+    const _review = Review;
+    const _category = Category;
+
+    const product = await Product.findOne({ _id: id })
+      .populate({
+        path: "reviews",
+        select: "reviewText userName rating createdAt",
+        options: { limit: 3, sort: { createdAt: -1 } },
+      })
+      .populate({ path: "category", select: "name" });
 
     return JSON.parse(JSON.stringify(product)) as ProductType;
   } catch (err) {

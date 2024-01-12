@@ -1,7 +1,3 @@
-// "use client";
-
-// export const dynamic = "force-dynamic";
-
 import { cn } from "@/lib/cn";
 import Link from "next/link";
 import { IoIosArrowForward } from "react-icons/io";
@@ -30,7 +26,11 @@ function Breadcrumbs({ crumbs, className }: BreadcrumbsProps) {
                 "flex flex-nowrap items-center gap-1 text-xs sm:text-base  hover:drop-shadow-sm hover:text-black",
                 isLastElement ? "font-semibold" : ""
               )}>
-              <Link href={crumb.link}>{crumb.name}</Link>
+              <Link
+                href={crumb.link}
+                className={cn(isLastElement ? "cursor-default" : "")}>
+                {crumb.name}
+              </Link>
               {isLastElement ? null : (
                 <IoIosArrowForward className="text-[#306c8a]" />
               )}

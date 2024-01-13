@@ -94,6 +94,13 @@ function AllProducts({ categoryId, headerText }: AllProductsProps) {
   const handleConfirmPriceRange = (val: Range) => {
     setIsOpenPriceFilter(false);
     setConfirmedPriceRangeValue(val);
+    router.push(
+      `?${new URLSearchParams({
+        page: "1",
+        limit: limit.toString(),
+        sort: sort,
+      })}`
+    );
   };
 
   const isAppliedSomePriceFilter =

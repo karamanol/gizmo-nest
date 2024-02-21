@@ -9,6 +9,7 @@ import { cn } from "@/lib/cn";
 import SearchBar from "./SearchBar";
 import { IoMenu } from "react-icons/io5";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 const font = Share_Tech({ weight: "400", subsets: ["latin"] });
 
@@ -102,55 +103,110 @@ function Header() {
             onClick={hideMobileNav}
             href={"/"}
             className={cn(
-              "header-link",
-              pathName === "/" ? "header-link-active" : "",
+              "header-link relative",
               isActiveMobileNavigation ? "!text-3xl" : "lg:text-sm xl:text-base"
             )}>
-            Homepage
+            <span className="py-1 px-2">Homepage</span>
+            {pathName === "/" && !isActiveMobileNavigation && (
+              <motion.span
+                className="absolute bg-gray-100/10 rounded-full w-full h-full"
+                layoutId="activeLink"
+                transition={{
+                  type: "spring",
+                  stiffness: 400,
+                  damping: 30,
+                }}></motion.span>
+            )}
           </Link>
 
           <Link
             onClick={hideMobileNav}
             href={"/products"}
             className={cn(
-              "header-link",
-              pathName === "/products" ? "header-link-active" : "",
+              "header-link relative",
               isActiveMobileNavigation ? "!text-3xl" : "lg:text-sm xl:text-base"
             )}>
-            All products
+            <span className="px-2 py-1">All products</span>
+
+            {pathName === "/products" && !isActiveMobileNavigation && (
+              <motion.span
+                className="absolute bg-gray-100/10 rounded-full w-full h-full"
+                layoutId="activeLink"
+                transition={{
+                  type: "spring",
+                  stiffness: 400,
+                  damping: 30,
+                }}></motion.span>
+            )}
           </Link>
 
           <Link
             onClick={hideMobileNav}
             href={"/categories"}
             className={cn(
-              "header-link",
-              pathName.startsWith("/categories") ? "header-link-active" : "",
+              "header-link relative",
               isActiveMobileNavigation ? "!text-3xl" : "lg:text-sm xl:text-base"
             )}>
-            Categories
+            <span className="px-2 py-1">Categories</span>
+
+            {pathName.startsWith("/categories") &&
+              !isActiveMobileNavigation && (
+                <motion.span
+                  className="absolute bg-gray-100/10 rounded-full w-full h-full"
+                  layoutId="activeLink"
+                  transition={{
+                    type: "spring",
+                    stiffness: 400,
+                    damping: 30,
+                  }}></motion.span>
+              )}
           </Link>
 
           <Link
             onClick={hideMobileNav}
             href={"/favourites"}
             className={cn(
-              "header-link",
-              pathName === "/favourites" ? "header-link-active" : "",
+              "header-link relative",
               isActiveMobileNavigation ? "!text-3xl" : "lg:text-sm xl:text-base"
             )}>
-            Favourites <span className="w-8">({favouriteProducts.length})</span>
+            <span className="py-1 px-2">
+              Favourites{" "}
+              <span className="w-8">({favouriteProducts.length})</span>
+            </span>
+
+            {pathName === "/favourites" && !isActiveMobileNavigation && (
+              <motion.span
+                className="absolute bg-gray-100/10 rounded-full w-full h-full"
+                layoutId="activeLink"
+                transition={{
+                  type: "spring",
+                  stiffness: 400,
+                  damping: 30,
+                }}></motion.span>
+            )}
           </Link>
 
           <Link
             onClick={hideMobileNav}
             href={"/cart"}
             className={cn(
-              "header-link",
-              pathName === "/cart" ? "header-link-active" : "",
+              "header-link relative",
               isActiveMobileNavigation ? "!text-3xl" : "lg:text-sm xl:text-base"
             )}>
-            Cart <span className="w-8">({productsInCart.length})</span>
+            <span className="py-1 px-2">
+              Cart <span className="w-8">({productsInCart.length})</span>
+            </span>
+
+            {pathName === "/cart" && !isActiveMobileNavigation && (
+              <motion.span
+                className="absolute bg-gray-100/10 rounded-full w-full h-full"
+                layoutId="activeLink"
+                transition={{
+                  type: "spring",
+                  stiffness: 400,
+                  damping: 30,
+                }}></motion.span>
+            )}
           </Link>
         </nav>
       </div>
